@@ -1,8 +1,13 @@
 import PySimpleGUI as sg
 import functions
 import time
+import os
 
-sg.theme("light Blue")
+if not os.path.exists("todos.txt"):
+    with open("todos.txt", "w") as file:
+        pass
+
+sg.theme("light Blue 3")
 # Date and time
 clock = sg.Text('', key='clock')
 # Creates a text variable
@@ -46,9 +51,9 @@ while running:
     # Update time
     window['clock'].update(value=time.strftime("%b %d, %Y %H:%M:%S"))
     # Verify the event and values
-    print(f"event = {event}")
-    print(f"values = {values}")
-    print(f"values todos = {values['todos']}")
+    # print(f"event = {event}")
+    # print(f"values = {values}")
+    # print(f"values todos = {values['todos']}")
     # Display todo items
 
     # Event cases
